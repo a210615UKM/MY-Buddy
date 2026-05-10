@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY Buddy – Discover Malaysia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <span class="brand-text">MYBuddy</span>
+      </a>
+      <div class="nav-right">
+        <span class="nav-tagline" data-i18n="nav_tagline">Your AI Travel &amp; Lifestyle Companion</span>
+        <button type="button" id="lang-toggle" class="lang-switch" aria-label="Switch language">
+          <span class="lang-option" id="lang-en">EN</span>
+          <span class="lang-option" id="lang-ms">BM</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 data-i18n="hero_title">Discover the best of Malaysia</h1>
+      <p class="hero-sub" data-i18n="hero_sub">
+        Food, cafes, activities and shopping,
+        tell us what you need and we'll find the perfect spot for you.
+      </p>
+    </div>
+  </header>
+
+  <!-- ===== SEARCH PANEL (overlaps hero) ===== -->
+  <main class="main-container">
+    <section class="search-panel">
+      <form id="buddy-form" class="search-form">
+
+        <!-- Row 1: What do you need -->
+        <div class="form-group form-group--full">
+          <label for="need" data-i18n="label_need">
+            <span class="label-icon">🔍</span> What are you looking for?
+          </label>
+          <input
+            type="text"
+            id="need"
+            data-i18n-placeholder="placeholder_need"
+            placeholder="e.g. cheap dinner, cafe to study, weekend activity, best nasi lemak"
+            required
+            autocomplete="off"
+          >
+          <div class="quick-tags" id="quick-tags">
+            <button type="button" class="tag-btn" data-value="Food hunting" data-value-ms="Cari makanan" data-i18n="tag_food">🍜 Food Hunting</button>
+            <button type="button" class="tag-btn" data-value="Cafe to study" data-value-ms="Kafe untuk belajar" data-i18n="tag_cafe">☕ Cafe Study</button>
+            <button type="button" class="tag-btn" data-value="Weekend activity" data-value-ms="Aktiviti hujung minggu" data-i18n="tag_weekend">🌴 Weekend Activity</button>
+            <button type="button" class="tag-btn" data-value="Shopping" data-value-ms="Membeli-belah" data-i18n="tag_shopping">🛍️ Shopping</button>
+            <button type="button" class="tag-btn" data-value="Nature and outdoor" data-value-ms="Alam semula jadi" data-i18n="tag_nature">🌿 Nature</button>
+            <button type="button" class="tag-btn" data-value="Budget friendly food and activity" data-value-ms="Makanan dan aktiviti bajet" data-i18n="tag_budget">💸 Budget Friendly</button>
+            <button type="button" class="tag-btn" data-value="Family friendly activity" data-value-ms="Aktiviti mesra keluarga" data-i18n="tag_family">👨‍👩‍👧 Family Friendly</button>
+            <button type="button" class="tag-btn" data-value="Date spot" data-value-ms="Tempat dating" data-i18n="tag_date">💕 Date Spot</button>
+          </div>
+        </div>
+
+        <!-- Row 2: Area + Budget side by side -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="location" data-i18n="label_area">
+              <span class="label-icon">📍</span> Area
+            </label>
+            <input
+              type="text"
+              id="location"
+              data-i18n-placeholder="placeholder_area"
+              placeholder="e.g. KL, Penang, Johor Bahru"
+              autocomplete="off"
+            >
+            <button type="button" id="use-location-btn" class="location-btn" data-i18n="btn_location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
+              Use current location
+            </button>
+            <small id="location-note" class="location-note" data-i18n="location_note">
+              Type an area or use GPS
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="budget" data-i18n="label_budget">
+              <span class="label-icon">💰</span> Budget:
+              <span id="budget-display" class="budget-badge">RM 50</span>
+            </label>
+            <input
+              type="range"
+              id="budget"
+              min="0"
+              max="500"
+              step="5"
+              value="50"
+              class="budget-slider"
+            >
+            <div class="slider-labels">
+              <span>RM 0</span>
+              <span>RM 250</span>
+              <span>RM 500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" id="submit-btn" class="search-btn" data-i18n="btn_search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Search
+        </button>
+
+      </form>
+    </section>
+
+    <!-- STATUS MESSAGE -->
+    <div id="status" class="status"></div>
+
+    <!-- RESULTS SECTION -->
+    <section class="results-section" id="results-section" style="display:none;">
+      <div class="results-header">
+        <h2 data-i18n="results_title">Recommended for You</h2>
+        <p class="results-hint" data-i18n="results_hint">Sorted from most suitable to least suitable</p>
+      </div>
+
+      <!-- SORT & FILTER TOOLBAR -->
+      <div class="results-toolbar" id="results-toolbar">
+        <div class="toolbar-group">
+          <label class="toolbar-label" data-i18n="toolbar_sort">Sort by:</label>
+          <select id="sort-select" class="toolbar-select">
+            <option value="recommended" data-i18n="sort_recommended">Most Recommended</option>
+            <option value="rating-high" data-i18n="sort_rating">Highest Rating</option>
+            <option value="price-low" data-i18n="sort_price_low">Lowest Price</option>
+            <option value="price-high" data-i18n="sort_price_high">Highest Price</option>
+          </select>
+        </div>
+        <div class="toolbar-group">
+          <label class="toolbar-label" data-i18n="toolbar_rating">Min Rating:</label>
+          <select id="filter-rating" class="toolbar-select">
+            <option value="0" data-i18n="rating_any">Any</option>
+            <option value="3">3+ ⭐</option>
+            <option value="3.5">3.5+ ⭐</option>
+            <option value="4">4+ ⭐</option>
+            <option value="4.5">4.5+ ⭐</option>
+          </select>
+        </div>
+        <button type="button" id="reset-filters" class="toolbar-reset" data-i18n="btn_reset">Reset</button>
+      </div>
+
+      <p class="results-count" id="results-count"></p>
+      <div id="results" class="results-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p data-i18n="footer">&copy; 2025 MY Buddy &mdash; Powered by AI &amp; Google Maps</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
