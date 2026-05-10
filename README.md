@@ -206,12 +206,3 @@ This ensures `.env` and sensitive files are never committed.
 ## License
 
 This project was built for educational/hackathon purposes.
-
----
-
-## Team
-
-- [Team Member 1] — [Role]
-- [Team Member 2] — [Role]
-- [Team Member 3] — [Role]
-- [Team Member 4] — [Role]
