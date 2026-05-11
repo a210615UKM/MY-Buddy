@@ -12,6 +12,8 @@ A futuristic AI-powered recommendation platform that helps users discover the be
 
 > [https://a210615ukm.github.io/MY-Buddy/](https://a210615ukm.github.io/MY-Buddy/)
 
+---
+
 ## ✨ Features
 
 - **AI-Powered Ranking** — Gemini AI analyzes and ranks real places based on your specific need, budget, time, and group
