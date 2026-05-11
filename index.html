@@ -3,171 +3,222 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MY Buddy – Discover Malaysia</title>
+  <title>MYBuddy — AI-Powered Discovery Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-brand">
-        <span class="brand-text">MYBuddy</span>
+  <!-- BACKGROUND EFFECTS -->
+  <div class="bg-effects">
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav-wrap">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <span>MYBuddy</span>
       </a>
+      <div class="nav-center">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#search" class="nav-link">Search</a>
+      </div>
       <div class="nav-right">
-        <span class="nav-tagline" data-i18n="nav_tagline">Your AI Travel &amp; Lifestyle Companion</span>
-        <button type="button" id="lang-toggle" class="lang-switch" aria-label="Switch language">
-          <span class="lang-option" id="lang-en">EN</span>
-          <span class="lang-option" id="lang-ms">BM</span>
+        <button id="lang-toggle" class="nav-lang">
+          <span class="nav-lang-opt" id="lang-en">EN</span>
+          <span class="nav-lang-opt" id="lang-ms">BM</span>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 data-i18n="hero_title">Discover the best of Malaysia</h1>
-      <p class="hero-sub" data-i18n="hero_sub">
-        Food, cafes, activities and shopping,
-        tell us what you need and we'll find the perfect spot for you.
-      </p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span data-i18n="hero_badge">AI-Powered Discovery Engine</span>
+      </div>
+      <h1 class="hero-title" data-i18n="hero_title">Find the best places in Malaysia — <span class="hero-gradient">powered by AI.</span></h1>
+      <p class="hero-desc" data-i18n="hero_sub">Describe what you're looking for and let our AI recommend the perfect food, cafes, activities, and shopping spots near you.</p>
+      <div class="hero-cta">
+        <a href="#search" class="btn-primary">Start Exploring →</a>
+        <a href="#features" class="btn-ghost">See How It Works</a>
+      </div>
     </div>
-  </header>
 
-  <!-- ===== SEARCH PANEL (overlaps hero) ===== -->
-  <main class="main-container">
-    <section class="search-panel">
-      <form id="buddy-form" class="search-form">
-
-        <!-- Row 1: What do you need -->
-        <div class="form-group form-group--full">
-          <label for="need" data-i18n="label_need">
-            <span class="label-icon">🔍</span> What are you looking for?
-          </label>
-          <input
-            type="text"
-            id="need"
-            data-i18n-placeholder="placeholder_need"
-            placeholder="e.g. cheap dinner, cafe to study, weekend activity, best nasi lemak"
-            required
-            autocomplete="off"
-          >
-          <div class="quick-tags" id="quick-tags">
-            <button type="button" class="tag-btn" data-value="Food hunting" data-value-ms="Cari makanan" data-i18n="tag_food">🍜 Food Hunting</button>
-            <button type="button" class="tag-btn" data-value="Cafe to study" data-value-ms="Kafe untuk belajar" data-i18n="tag_cafe">☕ Cafe Study</button>
-            <button type="button" class="tag-btn" data-value="Weekend activity" data-value-ms="Aktiviti hujung minggu" data-i18n="tag_weekend">🌴 Weekend Activity</button>
-            <button type="button" class="tag-btn" data-value="Shopping" data-value-ms="Membeli-belah" data-i18n="tag_shopping">🛍️ Shopping</button>
-            <button type="button" class="tag-btn" data-value="Nature and outdoor" data-value-ms="Alam semula jadi" data-i18n="tag_nature">🌿 Nature</button>
-            <button type="button" class="tag-btn" data-value="Budget friendly food and activity" data-value-ms="Makanan dan aktiviti bajet" data-i18n="tag_budget">💸 Budget Friendly</button>
-            <button type="button" class="tag-btn" data-value="Family friendly activity" data-value-ms="Aktiviti mesra keluarga" data-i18n="tag_family">👨‍👩‍👧 Family Friendly</button>
-            <button type="button" class="tag-btn" data-value="Date spot" data-value-ms="Tempat dating" data-i18n="tag_date">💕 Date Spot</button>
+    <!-- FLOATING MOCKUP -->
+    <div class="mockup">
+      <div class="mockup-glass">
+        <div class="mockup-header">
+          <div class="mockup-dots"><span></span><span></span><span></span></div>
+          <span class="mockup-title">MYBuddy AI Dashboard</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-row">
+            <div class="mockup-chip">🍜 Food</div>
+            <div class="mockup-chip">☕ Cafe</div>
+            <div class="mockup-chip active">🌴 Weekend</div>
+            <div class="mockup-chip">🛍️ Shopping</div>
+          </div>
+          <div class="mockup-bar"></div>
+          <div class="mockup-cards">
+            <div class="mockup-card"><div class="mc-img"></div><div class="mc-lines"><div class="mc-line w80"></div><div class="mc-line w50"></div></div></div>
+            <div class="mockup-card"><div class="mc-img"></div><div class="mc-lines"><div class="mc-line w70"></div><div class="mc-line w40"></div></div></div>
+            <div class="mockup-card"><div class="mc-img"></div><div class="mc-lines"><div class="mc-line w90"></div><div class="mc-line w60"></div></div></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Row 2: Area + Budget side by side -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="location" data-i18n="label_area">
-              <span class="label-icon">📍</span> Area
-            </label>
-            <input
-              type="text"
-              id="location"
-              data-i18n-placeholder="placeholder_area"
-              placeholder="e.g. KL, Penang, Johor Bahru"
-              autocomplete="off"
-            >
-            <button type="button" id="use-location-btn" class="location-btn" data-i18n="btn_location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
-              Use current location
-            </button>
-            <small id="location-note" class="location-note" data-i18n="location_note">
-              Type an area or use GPS
-            </small>
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-wrap">
+      <h2 class="section-title" data-i18n="features_title">How MYBuddy Works</h2>
+      <p class="section-desc" data-i18n="features_desc">Three simple steps to discover the best of Malaysia</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3 data-i18n="f1_title">Tell Us What You Want</h3>
+          <p data-i18n="f1_desc">Pick a category or describe what you're looking for — food, cafes, activities, or shopping.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h3 data-i18n="f2_title">Set Your Location</h3>
+          <p data-i18n="f2_desc">Type your area or use GPS. Set your budget and preferred time to get personalized results.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3 data-i18n="f3_title">Get AI Recommendations</h3>
+          <p data-i18n="f3_desc">Our AI searches Google Maps, ranks results by relevance, and shows you the top picks with photos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH SECTION -->
+  <section class="search-section" id="search">
+    <div class="section-wrap">
+      <h2 class="section-title" data-i18n="search_title">Start Your Search</h2>
+      <p class="section-desc" data-i18n="search_desc">Fill in the details below and let AI do the rest</p>
+
+      <div class="search-card">
+        <form id="buddy-form" class="search-form">
+
+          <!-- Step 1 -->
+          <div class="form-block">
+            <div class="form-label" data-i18n="step1_label">What are you looking for?</div>
+            <div class="form-chips">
+              <button type="button" class="chip" data-value="Food hunting" data-value-ms="Cari makanan" data-i18n="tag_food">🍜 Food</button>
+              <button type="button" class="chip" data-value="Cafe to study or work" data-value-ms="Kafe untuk belajar" data-i18n="tag_cafe">☕ Cafe</button>
+              <button type="button" class="chip" data-value="Weekend activity" data-value-ms="Aktiviti hujung minggu" data-i18n="tag_weekend">🌴 Weekend</button>
+              <button type="button" class="chip" data-value="Shopping" data-value-ms="Membeli-belah" data-i18n="tag_shopping">🛍️ Shopping</button>
+              <button type="button" class="chip" data-value="Nature and outdoor" data-value-ms="Alam semula jadi" data-i18n="tag_nature">🌿 Nature</button>
+              <button type="button" class="chip" data-value="Budget friendly" data-value-ms="Mesra bajet" data-i18n="tag_budget">💰 Budget</button>
+              <button type="button" class="chip" data-value="Family friendly activity" data-value-ms="Aktiviti mesra keluarga" data-i18n="tag_family">👨‍👩‍👧 Family</button>
+              <button type="button" class="chip" data-value="Date spot" data-value-ms="Tempat dating" data-i18n="tag_date">💕 Date</button>
+            </div>
+            <input type="text" id="need" class="form-input" data-i18n-placeholder="placeholder_need" placeholder="Or describe what you want..." autocomplete="off">
           </div>
 
-          <div class="form-group">
-            <label for="budget" data-i18n="label_budget">
-              <span class="label-icon">💰</span> Budget:
-              <span id="budget-display" class="budget-badge">RM 50</span>
-            </label>
-            <input
-              type="range"
-              id="budget"
-              min="0"
-              max="500"
-              step="5"
-              value="50"
-              class="budget-slider"
-            >
-            <div class="slider-labels">
-              <span>RM 0</span>
-              <span>RM 250</span>
-              <span>RM 500</span>
+          <!-- Step 2 -->
+          <div class="form-block">
+            <div class="form-label" data-i18n="step2_label">Where & Budget</div>
+            <div class="form-grid-2">
+              <div>
+                <div class="input-group">
+                  <input type="text" id="location" class="form-input" data-i18n-placeholder="placeholder_area" placeholder="e.g. Bangi, KL, Penang" autocomplete="off">
+                  <button type="button" id="use-location-btn" class="input-icon-btn" title="GPS">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
+                  </button>
+                </div>
+                <small id="location-note" class="form-hint" data-i18n="location_note">Type area or use GPS</small>
+              </div>
+              <div>
+                <div class="budget-header">
+                  <span class="form-hint" data-i18n="label_budget">Budget</span>
+                  <span id="budget-display" class="budget-value">RM 50</span>
+                </div>
+                <input type="range" id="budget" min="0" max="500" step="5" value="50" class="form-slider">
+                <div class="slider-range"><span>RM 0</span><span>RM 500</span></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Submit -->
-        <button type="submit" id="submit-btn" class="search-btn" data-i18n="btn_search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          Search
-        </button>
+          <!-- Step 3 -->
+          <div class="form-block">
+            <div class="form-label"><span data-i18n="step3_label">Plan Your Visit</span> <span class="form-optional" data-i18n="step3_optional">optional</span></div>
+            <div class="form-grid-3">
+              <div>
+                <label class="form-mini-label" data-i18n="label_date">Date</label>
+                <input type="date" id="plan-date" class="form-input">
+              </div>
+              <div>
+                <label class="form-mini-label" data-i18n="label_time">Time</label>
+                <select id="plan-time" class="form-input">
+                  <option value="" data-i18n="time_anytime">Anytime</option>
+                  <option value="morning" data-i18n="time_morning">Morning</option>
+                  <option value="afternoon" data-i18n="time_afternoon">Afternoon</option>
+                  <option value="evening" data-i18n="time_evening">Evening</option>
+                  <option value="night" data-i18n="time_night">Night</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-mini-label" data-i18n="label_group">Group</label>
+                <select id="plan-group" class="form-input">
+                  <option value="" data-i18n="group_any">Anyone</option>
+                  <option value="solo" data-i18n="group_solo">Solo</option>
+                  <option value="couple" data-i18n="group_couple">Couple</option>
+                  <option value="friends" data-i18n="group_friends">Friends</option>
+                  <option value="family" data-i18n="group_family">Family</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-      </form>
-    </section>
-
-    <!-- STATUS MESSAGE -->
-    <div id="status" class="status"></div>
-
-    <!-- RESULTS SECTION -->
-    <section class="results-section" id="results-section" style="display:none;">
-      <div class="results-header">
-        <h2 data-i18n="results_title">Recommended for You</h2>
-        <p class="results-hint" data-i18n="results_hint">Sorted from most suitable to least suitable</p>
+          <button type="submit" id="submit-btn" class="btn-primary btn-full" data-i18n="btn_search">Find Recommendations →</button>
+        </form>
       </div>
 
-      <!-- SORT & FILTER TOOLBAR -->
-      <div class="results-toolbar" id="results-toolbar">
-        <div class="toolbar-group">
-          <label class="toolbar-label" data-i18n="toolbar_sort">Sort by:</label>
-          <select id="sort-select" class="toolbar-select">
-            <option value="recommended" data-i18n="sort_recommended">Most Recommended</option>
-            <option value="rating-high" data-i18n="sort_rating">Highest Rating</option>
-            <option value="price-low" data-i18n="sort_price_low">Lowest Price</option>
-            <option value="price-high" data-i18n="sort_price_high">Highest Price</option>
-          </select>
+      <!-- Status -->
+      <div id="status" class="status-toast"></div>
+
+      <!-- Results -->
+      <div id="results-section" style="display:none">
+        <div class="results-header">
+          <h3 data-i18n="results_title">Recommendations</h3>
+          <p data-i18n="results_hint">AI-ranked from best match</p>
         </div>
-        <div class="toolbar-group">
-          <label class="toolbar-label" data-i18n="toolbar_rating">Min Rating:</label>
-          <select id="filter-rating" class="toolbar-select">
-            <option value="0" data-i18n="rating_any">Any</option>
-            <option value="3">3+ ⭐</option>
-            <option value="3.5">3.5+ ⭐</option>
-            <option value="4">4+ ⭐</option>
-            <option value="4.5">4.5+ ⭐</option>
-          </select>
+        <div class="results-toolbar" id="results-toolbar">
+          <select id="sort-select" class="toolbar-sel"><option value="recommended" data-i18n="sort_recommended">Best</option><option value="rating-high" data-i18n="sort_rating">Rating</option><option value="price-low" data-i18n="sort_price_low">Price ↑</option><option value="price-high" data-i18n="sort_price_high">Price ↓</option></select>
+          <select id="filter-rating" class="toolbar-sel"><option value="0" data-i18n="rating_any">Any ★</option><option value="3">3+</option><option value="4">4+</option><option value="4.5">4.5+</option></select>
+          <button type="button" id="reset-filters" class="toolbar-reset" data-i18n="btn_reset">Reset</button>
         </div>
-        <button type="button" id="reset-filters" class="toolbar-reset" data-i18n="btn_reset">Reset</button>
+        <p id="results-count" class="results-count"></p>
+        <div id="results" class="results-grid"></div>
       </div>
 
-      <p class="results-count" id="results-count"></p>
-      <div id="results" class="results-grid"></div>
-    </section>
+    </div>
+  </section>
 
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <p data-i18n="footer">&copy; 2025 MY Buddy &mdash; Powered by AI &amp; Google Maps</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="nav-logo"><div class="nav-logo-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><span>MYBuddy</span></span>
+      <p data-i18n="footer">&copy; 2025 MYBuddy — Powered by AI & Google Maps</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
-
+  <script src="script.js?v=5"></script>
 </body>
 </html>
