@@ -97,7 +97,7 @@ Browser (index.html + script.js)
 ### Step 1: Place project files
 
 ```
-C:\xampp\htdocs\mybuddy\
+C:\xampp\htdocs\MY-Buddy\
 ```
 
 All files directly inside this folder.
@@ -124,7 +124,7 @@ Ensure billing is active.
 ### Step 4: Start and open
 
 1. Open XAMPP → Start **Apache**
-2. Open browser → **http://localhost/mybuddy/**
+2. Open browser → **http://localhost/MY-Buddy/**
 
 ---
 
