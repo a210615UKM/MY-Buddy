@@ -10,7 +10,7 @@ A futuristic AI-powered recommendation platform that helps users discover the be
 
 ## Static UI
 
-> [http://lrgs.ftsm.ukm.my/users/a210615/MY-Buddy/](https://a210615ukm.github.io/MY-Buddy/)
+> [https://a210615ukm.github.io/MY-Buddy/](https://a210615ukm.github.io/MY-Buddy/)
 
 ## ✨ Features
 
