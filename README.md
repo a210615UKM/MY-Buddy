@@ -1,200 +1,189 @@
-# MY Buddy – Malaysia AI Travel & Lifestyle Companion
+# MYBuddy — AI-Powered Malaysia Discovery Platform
 
-An AI-powered hyperlocal recommendation website that helps users discover food, cafes, activities, shopping, and services across Malaysia. Powered by **Google Gemini AI** and **Google Places API**.
-
----
-
-## Features
-
-- **AI-Powered Recommendations** – Gemini AI ranks real places based on your specific need and budget
-- **Google Maps Integration** – Text Search for any area in Malaysia + GPS nearby search
-- **Smart Sorting** – Sort by Most Recommended, Highest Rating, Lowest/Highest Price
-- **Min Rating Filter** – Show only places rated 3+, 4+, or 4.5+
-- **Quick Category Buttons** – One-tap search for Food, Cafe, Shopping, Nature, etc.
-- **Budget Slider** – Visual RM 0–500 slider for easy budget control
-- **Bilingual (EN/BM)** – Full English and Bahasa Melayu language switch
-- **Google Maps Directions** – "Open in Maps" button on every result
-- **View Details** – Click any result to see reviews, photos, and hours on Google
-- **Mobile Responsive** – Works on phone, tablet, and desktop
-- **No sign-up required** – Works instantly in any browser
+A futuristic AI-powered recommendation platform that helps users discover the best food, cafes, activities, and shopping spots across Malaysia. Built with **Google Gemini AI** and **Google Places API**, featuring a premium dark SaaS-style interface.
 
 ---
 
-## Project Structure
+## ✨ Features
+
+- **AI-Powered Ranking** — Gemini AI analyzes and ranks real places based on your specific need, budget, time, and group
+- **Google Places Integration** — Real-time search across all of Malaysia with photo results
+- **Activity Planning** — Select date, time of day, and group type for personalized recommendations
+- **Smart Filters** — Sort by Best Match, Rating, or Price; filter by minimum rating
+- **Quick Category Chips** — One-tap selection for Food, Cafe, Weekend, Shopping, Nature, Budget, Family, Date
+- **Budget Slider** — Visual RM 0–500 range control
+- **GPS Location** — Auto-detect location with reverse geocoding (HTTPS required)
+- **Bilingual** — Full English and Bahasa Melayu language toggle
+- **Place Photos** — Real Google Places photos displayed in result cards
+- **Google Maps Links** — Open any result directly in Google Maps
+- **Mobile Responsive** — Optimized for phone, tablet, and desktop
+- **No sign-up required** — Works instantly in any browser
+
+---
+
+## 🖥️ UI Design
+
+The interface follows a **futuristic AI SaaS landing page** style:
+
+- Dark premium background with subtle grid pattern and gradient orbs
+- Floating rounded navigation bar with glassmorphism
+- Hero section with gradient text and animated badge
+- Interactive dashboard mockup preview
+- Feature cards with glass effect and hover animations
+- Glassmorphism search panel with glowing top border
+- Consistent 180×180px result card images with rank badges
+- Smooth transitions and hover effects throughout
+
+---
+
+## 📁 Project Structure
 
 ```
-C:\xampp\htdocs\ChatGPT\
+ChatGPT/
+├── index.html          # Main page — hero, features, search form, results
+├── style.css           # Full styling — dark theme, glassmorphism, responsive
+├── script.js           # Frontend logic — form, GPS, chips, filters, language, rendering
 │
-├── index.html          # Main frontend page (HTML)
-├── style.css           # All styling (CSS)
-├── script.js           # Frontend logic, language switch, filters (JavaScript)
+├── chat.php            # Backend — Google Places search + Gemini AI ranking
+├── config.php          # Loads .env variables into PHP
+├── data.php            # Local fallback recommendation data
+├── maps-config.php     # JSON endpoint providing Google Maps API key to frontend
+├── cacert.pem          # SSL certificate bundle (for servers without updated CA)
 │
-├── chat.php            # Backend API — receives search, calls Google Places + Gemini
-├── config.php          # Loads .env file, exposes API keys to PHP
-├── data.php            # Local fallback recommendation data (PHP array)
-├── maps-config.php     # Provides Google Maps API key to frontend (JSON endpoint)
-│
-├── .env                # API keys (NEVER commit this file)
-├── env.example         # Template for .env (safe to commit)
-├── .htaccess           # Blocks direct access to .env via browser
+├── .env                # API keys (NEVER commit)
+├── env.example         # Template for .env
+├── .htaccess           # Security + MIME types + cache control
 ├── gitignore.txt       # Git ignore rules (rename to .gitignore)
 │
-├── PRESENTATION.md     # Hackathon slide content (markdown)
-└── README.md           # This file
+├── PRESENTATION.md     # Hackathon presentation content
+├── README.md           # This file
+└── test-server.php     # Server diagnostic tool (delete after testing)
 ```
 
 ---
 
-## How It Works
+## ⚙️ How It Works
 
 ```
-User (browser)
+Browser (index.html + script.js)
     │
-    ├── index.html + style.css + script.js
-    │       │
-    │       ▼
-    │   [User fills form → clicks Search]
-    │       │
-    │       ▼  POST JSON
-    │   chat.php
-    │       │
-    │       ├── Google Places API (Text Search or Nearby Search)
-    │       │       │
-    │       │       ▼ places found
-    │       ├── Gemini AI (ranks + describes places)
-    │       │       │
-    │       │       ▼ ranked JSON
-    │       └── Returns recommendations to frontend
+    ├─ User selects category / types need
+    ├─ Sets location, budget, date, time, group
+    ├─ Clicks "Find Recommendations"
     │
-    └── script.js renders cards with sort/filter
+    ▼ POST /chat.php (JSON)
+    │
+    ├─ Google Places API (Text Search with photos)
+    │       │
+    │       ▼ Real places with ratings, photos, addresses
+    │
+    ├─ Gemini AI (ranks, filters, describes)
+    │       │
+    │       ▼ Top 5 ranked recommendations with reasons
+    │
+    └─ Returns JSON → script.js renders cards with photos
 ```
 
 ---
 
-## Setup Instructions
+## 🚀 Setup Instructions
 
 ### Prerequisites
 
-- **XAMPP** (Apache + PHP 8.x) — [Download here](https://www.apachefriends.org/)
-- **Google Cloud account** with billing enabled
-- **Gemini API key** — [Get from Google AI Studio](https://aistudio.google.com/app/apikey)
-- **Google Maps API key** — [Get from Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+- **XAMPP** (Apache + PHP) — [Download](https://www.apachefriends.org/)
+- **Gemini API Key** — [Google AI Studio](https://aistudio.google.com/app/apikey)
+- **Google Maps API Key** — [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
 
-### Step 1: Place the project files
-
-Copy the entire project folder to your XAMPP htdocs directory:
+### Step 1: Place project files
 
 ```
 C:\xampp\htdocs\ChatGPT\
 ```
 
-All files should be directly inside this folder (not in a subfolder).
+All files directly inside this folder.
 
-### Step 2: Create the .env file
+### Step 2: Create .env file
 
-Copy `env.example` and rename it to `.env`:
+Copy `env.example` to `.env` and add your keys:
 
 ```
-GEMINI_API_KEY=your_real_gemini_api_key_here
-GOOGLE_MAPS_API_KEY=your_real_google_maps_api_key_here
+GEMINI_API_KEY=your_gemini_key_here
+GOOGLE_MAPS_API_KEY=your_google_maps_key_here
 ```
-
-Replace the placeholder values with your actual API keys.
 
 ### Step 3: Enable Google APIs
 
-In your [Google Cloud Console](https://console.cloud.google.com/apis/library), enable these APIs:
+In [Google Cloud Console](https://console.cloud.google.com/apis/library), enable:
 
 1. **Places API (New)** — for searching places
-2. **Geocoding API** — for converting GPS coordinates to area names
-3. **Generative Language API** — for Gemini AI (or use AI Studio key)
+2. **Geocoding API** — for GPS → address conversion
+3. **Generative Language API** — for Gemini AI
 
-Make sure billing is active on your Google Cloud project.
+Ensure billing is active.
 
-### Step 4: Start XAMPP
+### Step 4: Start and open
 
-1. Open XAMPP Control Panel
-2. Start **Apache**
-3. Open your browser and go to: **http://localhost/ChatGPT/**
-
----
-
-## API Keys Security
-
-| File | Purpose | Commit? |
-|------|---------|---------|
-| `.env` | Stores real API keys | ❌ NEVER |
-| `env.example` | Template showing required keys | ✅ Yes |
-| `.htaccess` | Blocks browser access to .env | ✅ Yes |
-| `config.php` | Reads .env into PHP environment | ✅ Yes |
-
-The `.htaccess` file contains:
-
-```apache
-<Files ".env">
-    Require all denied
-</Files>
-```
-
-This prevents anyone from accessing your API keys via the browser.
+1. Open XAMPP → Start **Apache**
+2. Open browser → **http://localhost/ChatGPT/**
 
 ---
 
-## Git Setup
+## 🌐 Remote Server Deployment
 
-Rename `gitignore.txt` to `.gitignore` before pushing to GitHub:
+If deploying to a shared hosting server (e.g. university server):
 
-```bash
-ren gitignore.txt .gitignore
-```
+1. Upload all files including `cacert.pem`
+2. The `cacert.pem` file fixes SSL certificate issues on servers without updated CA bundles
+3. All PHP files are compatible with **PHP 5.5+**
+4. Run `test-server.php` to verify: PHP, curl, .env, and outbound HTTPS all work
+5. Delete `test-server.php` after confirming
 
-This ensures `.env` and sensitive files are never committed.
-
----
-
-## File Descriptions
-
-| File | Role |
-|------|------|
-| `index.html` | Main page layout — navbar, hero, search form, results section |
-| `style.css` | All visual styling — responsive, modern travel-platform design |
-| `script.js` | Form handling, GPS location, budget slider, language switch, card rendering, sort/filter |
-| `chat.php` | Backend brain — receives user input, calls Google Places Text Search, sends results to Gemini for ranking, returns JSON |
-| `config.php` | Loads `.env` variables into PHP using `putenv()` and `$_ENV` |
-| `data.php` | Local Malaysian recommendation data (fallback when APIs are unavailable) |
-| `maps-config.php` | JSON endpoint that provides the Google Maps API key to the frontend for reverse geocoding |
+**Note:** GPS location requires HTTPS. On HTTP servers, users must type their area manually.
 
 ---
 
-## Tech Stack
+## 🔒 Security
+
+| File | Purpose | Safe to commit? |
+|------|---------|:---:|
+| `.env` | Real API keys | ❌ |
+| `env.example` | Key template | ✅ |
+| `.htaccess` | Blocks .env access + MIME types | ✅ |
+| `config.php` | Reads .env into PHP | ✅ |
+| `cacert.pem` | SSL certificates | ✅ |
+
+---
+
+## 🛠️ Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
 | Frontend | HTML5, CSS3, Vanilla JavaScript |
-| Backend | PHP 8.x (no framework) |
-| AI | Google Gemini 2.5 Flash (OpenAI-compatible endpoint) |
-| Places | Google Places API (New) — Text Search |
-| Maps | Google Maps URLs for directions |
+| Backend | PHP (5.5+ compatible, no framework) |
+| AI | Google Gemini 2.5 Flash |
+| Places | Google Places API (New) — Text Search + Photos |
+| Maps | Google Maps URL links |
 | Font | Inter (Google Fonts) |
+| Design | Dark theme, glassmorphism, CSS gradients |
 | Server | XAMPP Apache (local) / any PHP hosting |
 
 ---
 
-## Troubleshooting
+## 🐛 Troubleshooting
 
 | Problem | Solution |
 |---------|----------|
-| "Could not connect to server" | Make sure XAMPP Apache is running |
-| "Invalid JSON input" | Check browser console for fetch errors |
-| "Google Maps API key not configured" | Add `GOOGLE_MAPS_API_KEY` to your `.env` file |
-| "Gemini API key not set" | Add `GEMINI_API_KEY` to your `.env` file |
-| Results always the same | Make sure Google Places API (New) is enabled with billing |
-| Budget slider not updating | Clear browser cache (Ctrl+Shift+R) |
-| Language switch not working | Check browser console for JS errors |
+| Localhost looks unstyled | Hard refresh with `Ctrl+Shift+R` to clear cache |
+| "Cannot connect to server" | Start XAMPP Apache |
+| SSL certificate error on remote server | Make sure `cacert.pem` is uploaded |
+| GPS says "permission denied" | Site must be on HTTPS; type area manually on HTTP |
+| Results always the same | Enable Places API (New) with billing in Google Cloud |
+| No photos in results | Ensure Places API returns `places.photos` field |
+| PHP syntax error on old server | All code is PHP 5.5+ compatible |
 
 ---
 
-## Browser Support
+## 📱 Browser Support
 
 - Google Chrome (recommended)
 - Mozilla Firefox
@@ -203,6 +192,6 @@ This ensures `.env` and sensitive files are never committed.
 
 ---
 
-## License
+## 📄 License
 
-This project was built for educational/hackathon purposes.
+Built for educational and hackathon purposes.
