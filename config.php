@@ -14,7 +14,7 @@
  *   $key = GEMINI_API_KEY;
  */
 
-function loadEnv(string $path): void {
+function loadEnv($path) {
     if (!file_exists($path)) {
         throw new Exception(
             '.env file not found. Please create ' . $path . ' and add GEMINI_API_KEY.'
@@ -37,9 +37,9 @@ function loadEnv(string $path): void {
         }
 
         // Split on the FIRST = only so values can contain = (e.g. base64 keys)
-        [$name, $value] = explode('=', $line, 2);
-        $name  = trim($name);
-        $value = trim($value);
+        $parts = explode('=', $line, 2);
+        $name  = trim($parts[0]);
+        $value = trim($parts[1]);
 
         // Remove surrounding quotes if present  ("value" or 'value')
         if (preg_match('/^(["\']).*\1$/', $value)) {
