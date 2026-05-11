@@ -2,7 +2,15 @@
 
 A futuristic AI-powered recommendation platform that helps users discover the best food, cafes, activities, and shopping spots across Malaysia. Built with **Google Gemini AI** and **Google Places API**, featuring a premium dark SaaS-style interface.
 
+## 🌐 Live Demo
+
+> **Try it here:** [http://lrgs.ftsm.ukm.my/users/a210615/MY-Buddy/](http://lrgs.ftsm.ukm.my/users/a210615/MY-Buddy/)
+
 ---
+
+## Static UI
+
+> [http://lrgs.ftsm.ukm.my/users/a210615/MY-Buddy/](https://a210615ukm.github.io/MY-Buddy/)
 
 ## ✨ Features
 
@@ -39,7 +47,7 @@ The interface follows a **futuristic AI SaaS landing page** style:
 ## 📁 Project Structure
 
 ```
-ChatGPT/
+MY-Buddy/
 ├── index.html          # Main page — hero, features, search form, results
 ├── style.css           # Full styling — dark theme, glassmorphism, responsive
 ├── script.js           # Frontend logic — form, GPS, chips, filters, language, rendering
@@ -55,7 +63,7 @@ ChatGPT/
 ├── .htaccess           # Security + MIME types + cache control
 ├── gitignore.txt       # Git ignore rules (rename to .gitignore)
 │
-├── PRESENTATION.md     # Hackathon presentation content
+├── static.yml          # GitHub Pages static deployment config
 ├── README.md           # This file
 └── test-server.php     # Server diagnostic tool (delete after testing)
 ```
@@ -90,17 +98,13 @@ Browser (index.html + script.js)
 
 ### Prerequisites
 
-- **XAMPP** (Apache + PHP) — [Download](https://www.apachefriends.org/)
+- **PHP Server** (XAMPP, shared hosting, or university server)
 - **Gemini API Key** — [Google AI Studio](https://aistudio.google.com/app/apikey)
 - **Google Maps API Key** — [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
 
 ### Step 1: Place project files
 
-```
-C:\xampp\htdocs\MY-Buddy\
-```
-
-All files directly inside this folder.
+Upload all files to your PHP-capable server.
 
 ### Step 2: Create .env file
 
@@ -123,8 +127,14 @@ Ensure billing is active.
 
 ### Step 4: Start and open
 
-1. Open XAMPP → Start **Apache**
-2. Open browser → **http://localhost/MY-Buddy/**
+- **Local (XAMPP):** Start Apache → open `http://localhost/MY-Buddy/`
+- **Remote server:** Navigate to your server URL
+
+---
+
+## ⚠️ Important Note
+
+This project requires a **PHP server** to function. GitHub Pages only serves static files and **cannot run PHP**, so the search feature will not work on GitHub Pages. Use a PHP-capable hosting environment instead.
 
 ---
 
@@ -165,7 +175,7 @@ If deploying to a shared hosting server (e.g. university server):
 | Maps | Google Maps URL links |
 | Font | Inter (Google Fonts) |
 | Design | Dark theme, glassmorphism, CSS gradients |
-| Server | XAMPP Apache (local) / any PHP hosting |
+| Server | Any PHP hosting (XAMPP, shared hosting, university server) |
 
 ---
 
@@ -173,8 +183,8 @@ If deploying to a shared hosting server (e.g. university server):
 
 | Problem | Solution |
 |---------|----------|
+| "Cannot connect to server" | Make sure you're running on a PHP server, not GitHub Pages |
 | Localhost looks unstyled | Hard refresh with `Ctrl+Shift+R` to clear cache |
-| "Cannot connect to server" | Start XAMPP Apache |
 | SSL certificate error on remote server | Make sure `cacert.pem` is uploaded |
 | GPS says "permission denied" | Site must be on HTTPS; type area manually on HTTP |
 | Results always the same | Enable Places API (New) with billing in Google Cloud |
